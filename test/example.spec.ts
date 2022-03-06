@@ -1,4 +1,3 @@
-// example.spec.ts
 import { test, expect } from '@playwright/test'
 import { env } from '../package.json'
 const VITE_SERVER_ADDRESS = `http://127.0.0.1:${env.PORT || 3344}`

@@ -10,17 +10,16 @@ export default defineConfig({
   root: __dirname,
   plugins: [
     vue(),
-    resolveElectron(
-      /**
-       * Here you can specify other modules
-       * 🚧 You have to make sure that your module is in `dependencies` and not in the` devDependencies`,
-       *    which will ensure that the electron-builder can package it correctly
-       * @example
-       * {
-       *   'electron-store': 'const Store = require("electron-store"); export default Store;',
-       * }
-       */
-    ),
+    resolveElectron(),
+    /**
+     * Here you can specify other modules
+     * 🚧 You have to make sure that your module is in `dependencies` and not in the` devDependencies`,
+     *    which will ensure that the electron-builder can package it correctly
+     * @example
+     * {
+     *   'electron-store': 'const Store = require("electron-store"); export default Store;',
+     * }
+     */
   ],
   base: './',
   build: {
@@ -37,7 +36,7 @@ export default defineConfig({
  * @see https://github.com/caoxiemeihao/electron-vue-vite/issues/52
  */
 export function resolveElectron(
-  resolves: Parameters<typeof resolve>[0] = {}
+  resolves: Parameters<typeof resolve>[0] = {},
 ): Plugin {
   const builtins = builtinModules.filter((t) => !t.startsWith('_'))
 
