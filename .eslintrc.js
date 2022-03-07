@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: false,
     node: true,
@@ -6,7 +7,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'esnext',
-    project: './tsconfig.json',
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
@@ -24,11 +24,11 @@ module.exports = {
   },
   ignorePatterns: [
     'node_modules/**',
-    '**/dist/**',
+    'dist/**',
+    'release/**',
     '.github',
     '.vscode',
     'docker*',
-    'release/**',
     'vite.config.ts',
     '.eslintrc.js',
   ],
